@@ -9,7 +9,7 @@ const Admin = () => {
         setEmployees(mockEmployees);
     }, []);
 
-    // Function to add a new employee to the list
+     // Add a new employee to the employee list
     const addEmployee = () => {
         // Get input values
         const nameInput = document.querySelector('input[name="name"]');
@@ -32,6 +32,7 @@ const Admin = () => {
         posInput.value = "";
     };
 
+    // Delete an employee from the employee list
     const deleteEmployee = (id) => {
         setEmployees(employees.filter((employee) => employee.id !== id));
     };
