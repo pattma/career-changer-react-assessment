@@ -1,4 +1,10 @@
-const mockEmployees = [
+import Layout from './Layout'
+import { useState } from "react";
+import Admin from "./Admin";
+import User from "./User";
+import Normal from "./Normal";
+
+export const mockEmployees = [
   {
     id: 0,
     name: "mock",
@@ -21,13 +27,37 @@ const mockEmployees = [
 
 const Home = () => {
 
-  return (
-    <div>
+  const [employees, setEmployees] = useState(mockEmployees);
+  const [sector, setSector] = useState("normal");
 
-    </div>
+  if (sector === "user") {
+    return (
+      <Layout>
+        <Normal setSector={setSector} />
+        <User />
+      </Layout>
+    )
+  } 
+  
+  else if (sector === "admin") {
+    return (
+      <Layout>
+        <Normal setSector={setSector} />
+        <Admin />
+      </Layout>
+    )
+  } 
+
+  // return (
+  //   <div>
+      
+  //   </div>
+  // )
+  return (
+    <Layout>
+      <Normal setSector={setSector} />
+    </Layout>
   )
 }
-
-
 
 export default Home
